@@ -60,7 +60,7 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 @bot.command()
 async def systeminfo(ctx):
 
-    channel = bot.get_channel(1375125495674306735)  #kanal-ID til discord
+    channel = bot.get_channel()  #kanal-ID til discord
     output = subprocess.run(["whoami"], capture_output=True, text=True)
     ip = subprocess.run(["nslookup", "myip.opendns.com", "resolver1.opendns.com"], capture_output=True, text=True)
    
@@ -96,7 +96,7 @@ async def systeminfo(ctx):
 @bot.event
 async def on_ready():
     
-    channel = bot.get_channel(1375125495674306735)  #kanal-ID
+    channel = bot.get_channel()  #kanal-ID
     print(f"✅ Logged in as {bot.user}")
 
     embed = discord.Embed(
